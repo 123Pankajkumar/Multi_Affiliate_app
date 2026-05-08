@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "An affiliate product item",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "category": { "type": "string" },
+        "platform": { "type": "string" },
+        "affiliateLink": { "type": "string" },
+        "imageEmoji": { "type": "string" },
+        "isTrending": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "price", "platform", "affiliateLink"]
+    },
+    "Banner": {
+      "title": "Banner",
+      "description": "A homepage sliding banner",
+      "type": "object",
+      "properties": {
+        "bg": { "type": "string" },
+        "emoji": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "tag": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["bg", "title"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Authorized admin users",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of products"
+    },
+    "banners/{bannerId}": {
+      "schema": "Banner",
+      "description": "Collection of homepage banners"
+    },
+    "admins/{adminId}": {
+      "schema": "Admin",
+      "description": "Authorized administrators"
+    }
+  }
+}
